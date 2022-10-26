@@ -1,6 +1,10 @@
-## Getting Started
+## My Medical Appointment
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+Doctor appointment scheduling project using POO with java
+
+## class diagram UML
+
+![alt text](https://github.com/gonzadpp/MyMedicalAppointment/blob/main/Diagrama.png)
 
 ## Folder Structure
 
