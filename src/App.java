@@ -1,6 +1,7 @@
 //import static ui.UIMenu.*;
 
 import java.util.*;
+import model.Doctor;
 
 public class App {
     public static void main(String[] args) throws Exception {
