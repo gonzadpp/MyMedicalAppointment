@@ -16,5 +16,13 @@ public class Nurse extends User{
     public void setSpeciality(String speciality) {
         this.speciality = speciality;
     }
+
+    @Override
+    public void showDataUser() {
+        // TODO Auto-generated method stub
+        System.out.println("Hospital: Cruz Roja Mexicana");
+        System.out.println("Área: Urgencias");
+        
+    }
     
 }

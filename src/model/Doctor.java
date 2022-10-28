@@ -89,5 +89,10 @@ public class Doctor extends User {
             }
             
         }
-    
+        @Override
+        public void showDataUser() {
+            // TODO Auto-generated method stub
+            System.out.println("Hospital: HR N° 24");
+            System.out.println("Área: Pediatria");
+        }
 }

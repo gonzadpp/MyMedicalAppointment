@@ -2,6 +2,7 @@
 
 import java.util.*;
 import model.Doctor;
+import ui.UIMenu;
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -12,9 +13,9 @@ public class App {
         doctorNat.addAvailableAppointment(new Date(), "12 pm");
         doctorNat.addAvailableAppointment(new Date(), "02 pm");
 
-        System.out.println("Citas disponibles de " + doctorNat);
+       System.out.println("Citas disponibles de " + doctorNat);
        //Doctor doctorMari = new Doctor("Maritza", "Herndez", "Nurse");
 
-       // showMenu();
+       UIMenu.showMenu();
     }
 }

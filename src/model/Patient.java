@@ -49,5 +49,12 @@ public class Patient extends User{
         // TODO Auto-generated method stub
         return super.toString() + "\n Birthday: " +birthday+", Weight: "+getWeight()+", Height: "+getHeight()+", Blood: "+blood;
     }
+
+    @Override
+    public void showDataUser() {
+        // TODO Auto-generated method stub
+        System.out.println("Paciente");
+        System.out.println("Historial completo:");
+    }
     
 }
