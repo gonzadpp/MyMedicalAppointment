@@ -1,12 +1,13 @@
 package model;
 
+import java.text.SimpleDateFormat;
 import java.util.*;
-import java.util.ArrayList;
 
 public class Doctor extends User {
     
     private String speciality;
     private String license;
+    private ArrayList<AvailableAppointment> availableAppointments = new ArrayList<>(); //Colección de citas disponibles.
 
     public Doctor(String firstName, String lastName, String email) {
         super(firstName, lastName, email);
@@ -33,10 +34,10 @@ public class Doctor extends User {
         this.license = license;
     }
 
-    static ArrayList<AvailableAppointment> availableAppointments = new ArrayList<>(); //Colección de citas disponibles.
+    
     //Metodo a nivel de la clase Doctro que añade una cita(Objeto AvailableAppointment) al array list
-    public void addAvailableAppointment(Date date, String time) {   
-        availableAppointments.add(new AvailableAppointment(date, time)); 
+    public void addAvailableAppointment(String date, String time) {   
+        availableAppointments.add(new Doctor.AvailableAppointment(date, time)); 
     }
 
     public ArrayList<AvailableAppointment> getAvailableAppointments() { //Devuelve la lista completa de las citas agendadas.
@@ -56,10 +57,15 @@ public class Doctor extends User {
             private int id_availableAppointment; //ID de la cita para identificar   
             private Date date; //Fecha de la cita 
             private String time; //Hora de la cita
+            SimpleDateFormat format = new SimpleDateFormat("dd/MM/yy");
 
             //Constructor
-            private AvailableAppointment(Date date, String time) {
-                this.date = date;
+            private AvailableAppointment(String date, String time) {
+                try {
+                    this.date = format.parse(date);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
                 this.time = time;
             }
 
@@ -70,8 +76,11 @@ public class Doctor extends User {
             public void setId_availableAppointment(int id_availableAppointment) {
                 this.id_availableAppointment = id_availableAppointment;
             }
-            public Date getDate() {
+            public Date getDate(String DATE) {
                 return date;
+            }
+            public String getDate() { //Sobrecargamos el metodo getDate() para que devuelva date en String
+                return format.format(date);
             }
             public void setDate(Date date) {
                 this.date = date;

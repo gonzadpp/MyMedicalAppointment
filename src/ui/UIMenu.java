@@ -14,13 +14,13 @@ public class UIMenu {
 
     public static void showMenu(){
         System.out.println("Welcome to My Appointments");
-        System.out.println("Selecciona la opción deseada");
+        System.out.println("select the desired option");
 
         int response = 0;
         do {
             System.out.println("1. Doctor");
             System.out.println("2. Patient");
-            System.out.println("0. Salir");
+            System.out.println("0. Exit");
 
             Scanner sc = new Scanner(System.in);
             response = Integer.valueOf(sc.nextLine());
@@ -44,36 +44,6 @@ public class UIMenu {
         }while (response != 0);
     }
 
-    public static void showPatientMenu(){
-        int response = 0;
-        do {
-            System.out.println("\n\n");
-            System.out.println("Patient");
-            System.out.println("1. Book an appointment");
-            System.out.println("2. My appointments");
-            System.out.println("0. Return");
-
-            Scanner sc = new Scanner(System.in);
-            response = Integer.valueOf(sc.nextLine());
-
-            switch (response){
-                case 1:
-                    System.out.println("::Book an appointment");
-                    
-                    for (int i = 1; i < 4; i++) {
-                        System.out.println(i + ". " + MONTHS[i-1]);
-                    }
-
-                    break;
-                case 2:
-                    System.out.println("::My appointments");
-                    break;
-                case 0:
-                    showMenu();
-                    break;
-            }
-        }while (response != 0);
-    }
 
     public static void authUser(int userType) {  //Simulación de autenticación de usuarios
         //userType = 1 Doctor
@@ -82,7 +52,10 @@ public class UIMenu {
         ArrayList<Doctor> doctors = new ArrayList<>();
         doctors.add(new Doctor("Alejandro", "Martinez", "alejandro@mail.com"));
         doctors.add(new Doctor("Karen", "Sosa", "karen@mail.com"));
-        doctors.add(new Doctor("Rocío", "Gómez", "rocio@mail.com"));
+        doctors.add(new Doctor("Nataly", "Mingo", "nataly@mail.com"));
+
+        //Coleccion de citas disponibles para cada doctor
+        
 
         ArrayList<Patient> patients = new ArrayList<>();
         patients.add(new Patient("Guadalupe", "Lopez", "lupita@mail.com"));
@@ -101,7 +74,11 @@ public class UIMenu {
                         //Obtener los datos del usuario legeado.
                         doctorLogged = doc;
                         //Mostrar el menú del doctor
+                        UIDoctorMenu.showDoctorMenu(); //Mostramos el menu del doctor logeadio
                     }
+                }
+                if (emailCorrect == false) {
+                    System.out.println("The e-mail address and/or password you specified are not correct.");
                 }
             } 
             if (userType == 2) {
@@ -111,7 +88,7 @@ public class UIMenu {
                         //Obtener los datos del usuario loggeado.
                         patientLogged = pat;
                         //Mostrar el menú del paciente.
-                        showPatientMenu();
+                        UIPatientMenu.showPatientMenu();
 
                     }
                 }

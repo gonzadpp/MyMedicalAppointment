@@ -50,13 +50,18 @@ public abstract class User {
 
     public void setEmail(String email) {
         //Patrón para validar un email.
-        Pattern pattern = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
-        Matcher matcher = pattern.matcher(email);
-        if (matcher.find() == true) {
-            this.email = email;
-        } else {
-            System.out.println("El email ingresado es inválido");
+        if (email == "null") {
+            this.email = null;
+        } else{
+            Pattern pattern = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+            Matcher matcher = pattern.matcher(email);
+            if (matcher.find() == true) {
+                this.email = email;
+            } else {
+                System.out.println("Email set invalid");
+            }
         }
+        
     }
 
     public String getAddress() {
@@ -75,7 +80,7 @@ public abstract class User {
         if (phoneNumber.length() == 10) { // Validar el número de telefono
             this.phoneNumber = phoneNumber;
         } else{
-            System.out.println("El número debe ser de 10 digitos");
+            System.out.println("the number should be of 10 length");
         }
     }
 
